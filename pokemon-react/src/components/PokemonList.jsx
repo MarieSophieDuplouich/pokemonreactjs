@@ -1,14 +1,25 @@
+import Pokemon from "./Pokemon"
+import { useEffect, useState } from 'react'
+
+export default function PokemonList({pokemons}) {
 
 
-    
+  return (
+   <>
+     
       <div className="pokemon-list">
-        {filteredPokemons.map(poke => (
-          <div key={poke.id} className="pokemon-card">
-            <h3>{poke.name}</h3>
-            <img src={poke.image} alt={poke.name} />
-            <p>ID : {poke.pokedexId}</p>
-            <p>points d'attaque : {poke.stats.attack}</p>
-            <p>ça se passe ci-dessous le filtrage </p>
-          </div>
-        ))}
+      {pokemons.map(pokemons => (
+       
+          <Pokemon key={pokemons.id} pokemons={pokemons}/>
+
+      ) )}
       </div>
+   
+   
+   </>
+  );
+
+
+}
+
+  

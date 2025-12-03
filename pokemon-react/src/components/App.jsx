@@ -1,25 +1,36 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
-import Searchbar from './SearchBar'
+import Pokemon from './Pokemon';
+// import Searchbar from './SearchBar'
 import PokemonDetail from './PokemonDetail'
-import PokemonEvolution from './PokemonEvolution'
+// import PokemonEvolution from './PokemonEvolution'
 import PokemonList from './PokemonList'
 
-export function App() {
+export function App({ pokemons }) {
+  // const [pokemons,setPokemons]= useState([]);
+
+  // console.log(pokemons);
+  // const bulbizarre = pokemons[0];
+  // console.log(bulbizarre);
+  // useEffect(() => {
+
+  // }, []);
+
 
 
   return (
-    <>
-     <h1>Bienvenue sur Pokemon Api</h1>
-    
-     <div className="container">
-   
-     <PokemonList/>
+    < div className="app">
+      <PokemonList pokemons={pokemons} />
+
+      <div className="container">
+        <PokemonDetail />
+        {/*
      <Searchbar/>
      <PokemonDetail/>
-     <PokemonEvolution/>
-     </div>
-    </>
+     <PokemonEvolution/> */}
+
+      </div>
+    </div>
   )
 }
 
