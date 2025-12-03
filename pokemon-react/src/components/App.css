@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* outline: solid 1px red; */
+    outline: solid 1px red;
 }
 
 body {
@@ -29,11 +29,15 @@ body {
     margin: 1rem;
     padding: 1rem;
     cursor: pointer;
+
   
 }
 
+
+
 .pokemon-image {
-    width: 15%;
+  width: 100%;
+    flex:0.5;
     height: auto;
 }
 

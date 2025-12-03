@@ -9,8 +9,8 @@ import PokemonList from './PokemonList'
 export function App({ pokemons }) {
      //currentPokemon = valeur de départ/constante
     // setPokemon = setter
-  const [currentPokemon,setPokemon]= useState([0]);
-   const evolution = [{apiEvolutions}];
+  const [currentPokemon,setPokemon]= useState(pokemons[0]);
+  //  const evolution = [{apiEvolutions}];
 
   // console.log(pokemons);
   // const bulbizarre = pokemons[0];
@@ -23,10 +23,10 @@ export function App({ pokemons }) {
 
   return (
     < div className="app">
-      <PokemonList pokemons={pokemons} />
+      <PokemonList pokemons={pokemons} setPokemon={setPokemon}/>
 
       <div className="container">
-        <PokemonDetail pokemon={currentPokemon} evolution = {evolution}/>
+        <PokemonDetail currentPokemon={currentPokemon} />
         {/*
      <Searchbar/>
      <PokemonDetail/>
