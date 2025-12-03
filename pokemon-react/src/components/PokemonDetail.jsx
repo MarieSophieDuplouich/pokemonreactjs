@@ -2,14 +2,6 @@ import Pokemon from "./Pokemon"
 import { useEffect, useState } from 'react'
 
 export default function PokemonDetail({currentPokemon}) {
-  // if (!currentPokemon) {
-  //   return (
-  //     <div className="pokemon-detail">
-  //       <p>Sélectionnez un Pokémon dans la liste</p>
-  //     </div>
-  //   );
-  // }
-
 
   return (
    <>
@@ -21,7 +13,17 @@ export default function PokemonDetail({currentPokemon}) {
               
                  <Pokemon pokemons={currentPokemon}/>
   
-     
+               <div className="types-container">
+                <h4>Types</h4>
+                <div className="types-container-images">
+                  <img src={currentPokemon.apiTypes.image} alt="" />
+                  <img src={currentPokemon.apiTypes.image} alt="" />
+                </div>
+               </div>
+
+               <div className="container-evolution">
+                   <Pokemon pokemons={currentPokemon}/>
+               </div>
       </div>
    
    
