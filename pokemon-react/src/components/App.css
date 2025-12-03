@@ -2,6 +2,7 @@
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    outline: solid 1px red;
 }
 
 body{
@@ -10,8 +11,23 @@ body{
     font-family: sans-serif;
 }
 
-.container{
+.app{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     background: green;
+}
+
+.pokemon-card{
+    background:black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em;
+    padding: 1em;
+}
+
+.pokemon-image{
+    width: 15%;
+    height: auto;
 }
