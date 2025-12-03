@@ -7,7 +7,10 @@ import PokemonDetail from './PokemonDetail'
 import PokemonList from './PokemonList'
 
 export function App({ pokemons }) {
-  // const [pokemons,setPokemons]= useState([]);
+     //currentPokemon = valeur de départ/constante
+    // setPokemon = setter
+  const [currentPokemon,setPokemon]= useState([0]);
+   const evolution = [{apiEvolutions}];
 
   // console.log(pokemons);
   // const bulbizarre = pokemons[0];
@@ -23,7 +26,7 @@ export function App({ pokemons }) {
       <PokemonList pokemons={pokemons} />
 
       <div className="container">
-        <PokemonDetail />
+        <PokemonDetail pokemon={currentPokemon} evolution = {evolution}/>
         {/*
      <Searchbar/>
      <PokemonDetail/>
