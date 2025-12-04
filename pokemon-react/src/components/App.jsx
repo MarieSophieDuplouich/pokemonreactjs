@@ -26,7 +26,28 @@ export function App({ pokemons }) {
       setCurrentPokemon(pokemons_arr[0]);
     })
   },[])
-  //  const evolution = [{apiEvolutions}];
+  
+  const evolution = currentPokemon.apiEvolutions;
+
+
+     useEffect(()=>{
+    // evolution pokemon
+    fetch("https://pokebuildapi.fr/api/v1/pokemon/limit/100")
+    .then(res=>{
+      if(!res.ok){
+        throw "Error serveur"
+      }
+      return res.json();
+    })
+    .then(pokemons_arr=>{
+      // !
+      setPokemons(pokemons_arr);
+      setCurrentPokemon(pokemons_arr[0]);
+    })
+  },[])
+
+
+
   {/* //amélioré leconst de l'évolution ici mettre evolution = {evolution} avec currentpokemeonpok */ }
 
 
@@ -36,7 +57,7 @@ export function App({ pokemons }) {
       <PokemonList pokemons={pokemons} setPokemon={setPokemon} />
       <div className="container">
           <SearchBar pokemons={pokemons} onPokemonFound={(pokemon)=>setPokemon(pokemon)} />
-        <PokemonDetail currentPokemon={currentPokemon} />
+        <PokemonDetail currentPokemon={currentPokemon} evolution={evolution}/>
       </div>
     </div>
   )
