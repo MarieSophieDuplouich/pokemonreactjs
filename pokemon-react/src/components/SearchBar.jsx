@@ -16,7 +16,7 @@ export default function SearchBar({ pokemons, onPokemonFound }) {
     const formData = new FormData(e.target);
     const searchValue = formData.get('searchInput');
     setsearchPokemon(searchValue);
-    fetch("https://pokebuildapi.fr/api/v1/pokemon/Gruikui" + searchValue).then(res => res.json())
+    fetch("https://pokebuildapi.fr/api/v1/pokemon/" + searchValue).then(res => res.json())
       .then(pokemon => {
         onPokemonFound(pokemon)
       })

@@ -456,54 +456,99 @@ img.pokemon {
 
 
 
-////////////
+//////////// code cours massi
+// Parent
+// ```js
+// import { useEffect, useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
+// import './App.css'
+// import {PokemonList} from "./components/PokemonList"
+// import {SearchBar} from "./components/SearchBar"
+// import {PokemonDetail} from "./components/PokemonDetail"
 
-import { useEffect, useState } from 'react';
+// function App() {
+//   const [pokemons,setPokemons] = useState([]);
 
-export default function SearchBar({ pokemons }) {
-  // État pour la recherche
-  const [searchPokemon, setSearchPokemon] = useState('');
-  
-  // Fonction appelée à chaque frappe (onChange)
-  const handleChange = (e) => {
-    const formData = new FormData(e.target.form);
-    const searchValue = formData.get('searchInput');
-    setSearchPokemon(searchValue);
-  };
+//   const [currentPokemon,setCurrentPokemon] = useState(null);
 
-  // Filtrage des pokémons
-  const filteredPokemons = pokemons.filter(poke => {
-    if (!searchPokemon) return true;
+//   useEffect(()=>{
+//     // on app load
+//     fetch("https://pokebuildapi.fr/api/v1/pokemon/limit/100")
+//     .then(res=>{
+//       if(!res.ok){
+//         throw "Error serveur"
+//       }
+//       return res.json();
+//     })
+//     .then(pokemons_arr=>{
+//       // !
+//       setPokemons(pokemons_arr);
+//       setCurrentPokemon(pokemons_arr[0]);
+//     })
+//   },[])
 
-    const lower = searchPokemon.toLowerCase();
 
-    // Filtrer par id
-    const findId = String(poke.pokedexId).includes(lower);
+//   // 1. Fonction du parent
+//   function printPokemon(pokemon){
+//       console.log(pokemon)
+//       setCurrentPokemon(pokemon);
+//   }
 
-    // Filtrer par nom/name du pokémon
-    const findName = poke.name.toLowerCase().includes(lower);
 
-    return findId || findName;
-  });
+//   return (
+//     <div className='app'>
+//       <PokemonList  pokemons={pokemons} onClickPokemon={(pokemon)=>setCurrentPokemon(pokemon)}/>
+//       <div className='sidebar'>
+//         {/*                       fonction parent = prop        */}
+//         <SearchBar onPokemonSearch={printPokemon}/>
+//         <PokemonDetail pokemon={currentPokemon}/>
+//       </div>
+//     </div>
+//   )
+// }
 
-  return (
-    <div className="SearchBar">
-      <form onSubmit={(e) => e.preventDefault()}>
-        <label htmlFor="searchInput">
-          <span className="mglass">&#9906;</span>
-        </label>
-        <input 
-          id="searchInput" 
-          name="searchInput"
-          type="text"
-          placeholder="Filtrer par ID ou par nom"
-          onChange={handleChange}
-        />
-      </form>
+// export default App
+// ```
+// Enfant
+// ```js
 
-      {filteredPokemons.length === 0 && (
-        <p>Aucun Pokémon ne correspond à ce filtre.</p>
-      )}
-    </div>
-  );
-}
+
+// import './SearchBar.css'
+
+// //                         props qui est = à la fonction du parent
+// export function SearchBar({ onPokemonSearch }) {
+
+
+
+//     function onSubmit(e) {
+//         e.preventDefault();
+//         const formData = new FormData(e.target);
+//         const inputText = formData.get("name");
+//         fetch("https://pokebuildapi.fr/api/v1/pokemon/" + inputText)
+//             .then(res => {
+//                 if (res.ok) {
+//                     return res.json();
+//                 } else {
+//                     throw "404";
+//                 }
+//             }).then(pokemon => {
+              
+//                 // Appel de la fonction du parent 
+//                 // pour donner la data au parent
+//                 onPokemonSearch(pokemon);
+//             })
+//     }
+
+
+//     return (
+//         <div className='searchbar'>
+//             <form onSubmit={onSubmit}>
+
+//                 <button><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+//                 <input type="text" className='search-input' name="name" placeholder='pikachu' />
+//             </form>
+//         </div>
+//     )
+// }
+// ```
