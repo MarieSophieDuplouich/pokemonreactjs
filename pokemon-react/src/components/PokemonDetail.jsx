@@ -14,7 +14,7 @@ export default function PokemonDetail({currentPokemon}) {
                  <Pokemon pokemons={currentPokemon}/>
   
                <div className="types-container">
-                <h4>Types</h4>
+                <h4 className="title-types">Types</h4>
                 <div className="types-container-images">
                   <img src={currentPokemon.apiTypes.image} alt="" />
                   <img src={currentPokemon.apiTypes.image} alt="" />

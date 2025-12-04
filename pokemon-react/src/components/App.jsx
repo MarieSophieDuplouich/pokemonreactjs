@@ -7,8 +7,10 @@ import PokemonDetail from './PokemonDetail'
 import PokemonList from './PokemonList'
 
 export function App({ pokemons }) {
+
      //currentPokemon = valeur de départ/constante
     // setPokemon = setter
+    
   const [currentPokemon,setPokemon]= useState(pokemons[0]);
   //  const evolution = [{apiEvolutions}];
 
@@ -30,7 +32,7 @@ export function App({ pokemons }) {
         {/*
      <Searchbar/>
      <PokemonDetail/>
-     <PokemonEvolution/> */}
+   */}
 
       </div>
     </div>
