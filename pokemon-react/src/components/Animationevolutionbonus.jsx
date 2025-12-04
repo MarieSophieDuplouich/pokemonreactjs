@@ -90,7 +90,50 @@ function evolve() {
     
     circles.map(el => el.style.animation = "");
     bubbles.map(el => el.style.animation = "");
+    /////code claude pour comparer 
+
+import { useEffect, useState } from 'react';
+
+export default function SearchBar({pokemons }) {
+  // État pour la recherche (ID ou nom)
+  const [searchTerm, setSearchTerm] = useState('');
+  
+  // Filtrage des pokémons par ID ou nom
+  const filteredPokemons = pokemons.filter(poke => {
+    if(!searchTerm) return true;
     
+    // Si c'est un nombre, chercher par ID
+    if(!isNaN(searchTerm)) {
+      return parseInt(poke.pokedexId) >= parseInt(searchTerm);
+    }
+    
+    // Sinon, chercher par nom (insensible à la casse)
+    return poke.name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
+  return (
+    <div className="SearchBar">
+      <form>
+        <label htmlFor="searchInput">
+          <span className="mglass">&#9906;</span>
+        </label>
+        <input 
+          id="searchInput" 
+          type="text"
+          value={searchTerm} 
+          placeholder="Filtrer par ID ou par nom"
+          onChange={(e) => setSearchTerm(e.target.value)} 
+        />
+      </form>
+       
+      {filteredPokemons.length === 0 && (
+        <p>Aucun Pokémon ne correspond à ce filtre.</p>
+      )}
+    </div>
+  );
+}
+
+
     otherElements.map(el => el.style.visibility = "visible");
     document.body.style.background = "white";
     
@@ -409,3 +452,44 @@ img.pokemon {
     </div>
   </div>
 </div>
+
+
+
+/////code claude pour comparer 
+
+
+  // Filtrage des pokémons par ID ou nom
+  const filteredPokemons = pokemons.filter(poke => {
+    if(!searchTerm) return true;
+    
+    // Si c'est un nombre, chercher par ID
+    if(!isNaN(searchTerm)) {
+      return parseInt(poke.pokedexId) >= parseInt(searchTerm);
+    }
+    
+    // Sinon, chercher par nom (insensible à la casse)
+    return poke.name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
+  return (
+    <div className="SearchBar">
+      <form>
+        <label htmlFor="searchInput">
+          <span className="mglass">&#9906;</span>
+        </label>
+        <input 
+          id="searchInput" 
+          type="text"
+          value={searchTerm} 
+          placeholder="Filtrer par ID ou par nom"
+          onChange={(e) => setSearchTerm(e.target.value)} 
+        />
+      </form>
+       
+      {filteredPokemons.length === 0 && (
+        <p>Aucun Pokémon ne correspond à ce filtre.</p>
+      )}
+    </div>
+  );
+}
+

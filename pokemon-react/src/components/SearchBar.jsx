@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react';
 
-export default function SearchBar(pokemons) {
-    //points d'attaque filtre pokemon
-  const [rangeAttack, onrangeAttack] = useState('');
-   //pokemon recherche par points d'attaque suite
-const filteredPokemons = pokemons.filter(poke => {
-  if(!rangeAttack) return true;
+export default function SearchBar({pokemons }) {
+    // id filtre pokemon
+  const [searchPokemon, onsearchPokemon] = useState('');
+   //pokemon recherche par id 
+
+   const filteredPokemons = pokemons.filter(poke => {
+  if(!searchPokemon) return true;
    
-  return parseInt(poke.stats.attack) >= parseInt(rangeAttack);
+   if(!isNaN(searchPokemon)) {
+  return parseInt(poke.pokedexId) >= parseInt(searchPokemon);
+   }
+
+   return poke.name.toLowerCase().includes(searchTerm.toLowercase());
+
 });
- //pokemon recherche par points d'attaque suite fin
+ //pokemon recherche par id ou name fin
 
 
   return (
@@ -17,9 +23,10 @@ const filteredPokemons = pokemons.filter(poke => {
 
 
       <form>
-        <input type="number"
-          value={rangeAttack} placeholder="filtrer par points d'attaque"
-          onChange={(e) => onrangeAttack(e.target.value)} />
+        <label htmlFor="searchInput"><span className="mglass">&#9906;</span></label>
+        <input id="searchInput" type="text"
+          value={searchPokemon} placeholder="filtrer par Id ou filter par nom"
+          onChange={(e) => onsearchPokemon(e.target.value)} />
       </form>
        
 
@@ -33,7 +40,5 @@ const filteredPokemons = pokemons.filter(poke => {
 
  
 }
-
-
 
 

@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: solid 1px white;
+  /* outline: solid 1px white; */
 }
 
 body {
@@ -67,6 +67,35 @@ body {
   object-fit: contain;
 }
 
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.mglass {
+	display: inline-block;
+	pointer-events: none;
+	transform: rotate(-45deg);
+  font-size: 3rem;
+
+}
+
+input{
+  width: 80%;
+  background-color: #292929;
+  opacity: 30%;
+  padding: 15px ;
+  margin:15px;
+  color: white;
+  border:10px;
+}
+
+input::placeholder {
+  color: #ccc;
+}
 /* responsivité */
 
 @media (width <=600px) {
