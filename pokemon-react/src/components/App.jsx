@@ -21,7 +21,7 @@ export function App({ pokemons }) {
     < div className="app">
       <PokemonList pokemons={pokemons} setPokemon={setPokemon} />
       <div className="container">
-          <SearchBar pokemons={pokemons} />
+          <SearchBar pokemons={pokemons} onPokemonFound={(pokemon)=>setPokemon(pokemon)} />
         <PokemonDetail currentPokemon={currentPokemon} />
       </div>
     </div>

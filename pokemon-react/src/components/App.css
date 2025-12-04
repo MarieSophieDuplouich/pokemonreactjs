@@ -86,11 +86,11 @@ form{
 input{
   width: 80%;
   background-color: #292929;
-  opacity: 30%;
+  opacity: 0.3;
   padding: 15px ;
   margin:15px;
   color: white;
-  border:10px;
+  border-radius:10px;
 }
 
 input::placeholder {
