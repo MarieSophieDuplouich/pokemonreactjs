@@ -10,16 +10,11 @@ export function App({ pokemons }) {
 
      //currentPokemon = valeur de départ/constante
     // setPokemon = setter
-    
+
   const [currentPokemon,setPokemon]= useState(pokemons[0]);
-  //  const evolution = [{apiEvolutions}];
 
-  // console.log(pokemons);
-  // const bulbizarre = pokemons[0];
-  // console.log(bulbizarre);
-  // useEffect(() => {
-
-  // }, []);
+//  const evolution = [{apiEvolutions}];
+ {/* //amélioré leconst de l'évolution ici mettre evolution = {evolution} avec currentpokemeonpok */}
 
 
 

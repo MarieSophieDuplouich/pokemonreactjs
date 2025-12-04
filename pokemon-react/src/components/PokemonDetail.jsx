@@ -23,6 +23,7 @@ export default function PokemonDetail({currentPokemon}) {
 
                <div className="container-evolution">
                    <Pokemon pokemons={currentPokemon}/>
+                   {/* //mettre l'évolution ici àla place de currentpokemeonjepense */}
                </div>
       </div>
    
