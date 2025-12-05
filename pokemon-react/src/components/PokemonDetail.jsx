@@ -28,19 +28,14 @@ export default function PokemonDetail({ currentPokemon, evolution,setPokemon}) {
           </div>
         </div>
 
-        <div >
+
+
+        <div className="container-evolution-principal">
 
           {currentPokemon.apiEvolutions.length === 0 && (
             <p className="pasevolution">Ce Pokémon n’a pas d’évolution.</p>
           )} 
 
-          {/* {currentPokemon.apiEvolutions.map(evolution =>
-
-          (<div> <img key={evolution.name} src={evolution.image} alt={evolution.name} />
-            <p>{evolution.pokedexId}</p>
-            <p>{evolution.name}</p></div>
-          )
-          ) */}
 
 
           {evolution.map(evolution =>
@@ -57,9 +52,6 @@ export default function PokemonDetail({ currentPokemon, evolution,setPokemon}) {
             </div>
           )
           )
-
-
-            // state pour les évolutions et faire fetch dans composant qui met à jour useffect
 
 
           }

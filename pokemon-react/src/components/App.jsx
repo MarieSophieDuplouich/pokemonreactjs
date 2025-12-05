@@ -23,7 +23,7 @@ export function App({ pokemons }) {
     })
     .then(pokemons_arr=>{
       // !
-      setPokemons(pokemons_arr);
+      setPokemons(pokemons_arr); //c'est bizarre quand je l'enlève lus rien ne marche
       setCurrentPokemon(pokemons_arr[0]);
     })
      },[])

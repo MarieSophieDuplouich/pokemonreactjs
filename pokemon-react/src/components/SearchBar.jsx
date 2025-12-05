@@ -1,7 +1,4 @@
-import { useEffect, useState } from 'react';
-
-
-
+import { useState } from 'react';
 
 
 export default function SearchBar({ pokemons, onPokemonFound }) {
@@ -55,12 +52,6 @@ export default function SearchBar({ pokemons, onPokemonFound }) {
         <input id="searchInput" name="searchInput" type="text"
           placeholder="filtrer par Id ou filter par nom" />
       </form>
-
-
-
-      {filteredPokemons.length === 0 && (
-        <p>Aucun Pokémon ne correspond à ce filtre.</p>
-      )}
 
     </div>
   );

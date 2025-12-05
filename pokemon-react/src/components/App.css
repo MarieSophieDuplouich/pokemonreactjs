@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* outline: solid 1px white; */
+  outline: solid 1px white;
 }
 
 body {
@@ -48,35 +48,44 @@ body {
 }
 
 .pokemon-card.pokemon-detail-plus {
-   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 200px;
-  gap:10px;
-  background: none;
-
-}
-
- .pokemon-card.pokemon-detail-plus img.pokemon-image{
-
-width: 100%;
-height: 300px;
- }
-
-.types-container {
-  margin-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap:10px;
+  padding: 200px;
+  gap: 10px;
+  background: none;
+  margin-top: 100px;
+
+}
+
+.pokemon-card.pokemon-detail-plus img.pokemon-image {
+  width: 400px;
+   
+}
+
+.pokemon-card.pokemon-detail-plus h3 {
+  font-size: 4rem;
+   align-self: center;
+    order: 3;
+}
+
+
+.types-container {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 100px;
 
 }
 
 .types-container-images {
   display: flex;
-  gap: 10px;
+  flex-direction: row-reverse;
+  gap: 50px;
 }
 
 .types-container-images img {
@@ -85,7 +94,7 @@ height: 300px;
   object-fit: contain;
 }
 
-form{
+form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,58 +103,56 @@ form{
 }
 
 .mglass {
-	display: inline-block;
-	pointer-events: none;
-	transform: rotate(-45deg);
+  display: inline-block;
+  pointer-events: none;
+  transform: rotate(-45deg);
   font-size: 3rem;
 
 }
 
-input{
-  width: 80%;
+input {
+  width: 50%;
   background-color: #292929;
   opacity: 0.3;
-  padding: 15px ;
-  margin:15px;
+  padding: 15px;
+  margin: 15px;
   color: white;
-  border-radius:10px;
 }
 
 input::placeholder {
   color: #ccc;
 }
 
-
+.container-evolution-principal{
+  overflow-y: auto;
+  overscroll-behavior: contain;
+   height: 300px;
+}
 /* responsivité */
 
 @media (width <=600px) {
- .app {
- 
+  .app {
+
     grid-template-columns: 1fr;
     padding: 5px;
   }
 
-
-  .pokemon-detail {
-    align-self: center;
-    order: -2;
-  }
- 
-  .title-types{
+  .title-types {
     font-size: 1.4rem;
   }
 
 
- .pokemon-card.pokemon-detail-plus{
+  .pokemon-card.pokemon-detail-plus {
+    padding: 146px;
+  }
 
-  padding:146px;
- }
 
- .types-container {
-  margin-top: 10px;
-}
 
-/* 
+  .types-container {
+    margin-top: 10px;
+  }
+
+  /* 
   .mobile-container {
   max-width: 480px;
   margin: auto;
