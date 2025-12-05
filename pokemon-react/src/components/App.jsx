@@ -25,30 +25,39 @@ export function App({ pokemons }) {
       setPokemons(pokemons_arr);
       setCurrentPokemon(pokemons_arr[0]);
     })
-  },[])
+     },[])
+    
+    //evolution pokemon
   
-  const evolution = currentPokemon.apiEvolutions;
+  const [evolution,setEvolution ]= useState([]);
 
 
-     useEffect(()=>{
-    // evolution pokemon
-    fetch("https://pokebuildapi.fr/api/v1/pokemon/limit/100")
-    .then(res=>{
-      if(!res.ok){
-        throw "Error serveur"
-      }
-      return res.json();
+useEffect(() => {
+  // si pas d'évolution → on vide le state
+  if (!currentPokemon.apiEvolutions || currentPokemon.apiEvolutions.length === 0) {
+    setEvolution([]);
+    return;
+  }
+
+  // récupérer les pokedexId des évolutions
+  const ids = currentPokemon.apiEvolutions.map(evolution => evolution.pokedexId);
+
+  // fetch pour chaque id
+  Promise.all(
+    ids.map(id =>
+      fetch(`https://pokebuildapi.fr/api/v1/pokemon/${id}`)
+        .then(res => {
+          if (!res.ok) throw "Erreur serveur évolution";
+          return res.json();
+        })
+    )
+  )
+    .then(results => {
+      setEvolution(results); // mettre toutes les infos dans le state
     })
-    .then(pokemons_arr=>{
-      // !
-      setPokemons(pokemons_arr);
-      setCurrentPokemon(pokemons_arr[0]);
-    })
-  },[])
+    .catch(err => console.error(err));
 
-
-
-  {/* //amélioré leconst de l'évolution ici mettre evolution = {evolution} avec currentpokemeonpok */ }
+}, [currentPokemon]);
 
 
 

@@ -2,7 +2,7 @@ import Pokemon from "./Pokemon"
 import { useEffect, useState } from 'react'
 import './Pokemon-detail.css'
 
-export default function PokemonDetail({ currentPokemon }) {
+export default function PokemonDetail({ currentPokemon, evolution }) {
 
   return (
     <>
@@ -27,20 +27,34 @@ export default function PokemonDetail({ currentPokemon }) {
           </div>
         </div>
 
-        <div className="container-evolution">
+        <div >
 
           {currentPokemon.apiEvolutions.length === 0 && (
-            <p>Ce Pokémon n’a pas d’évolution.</p>
-          )}
+            <p className="pasevolution">Ce Pokémon n’a pas d’évolution.</p>
+          )} 
 
-          {currentPokemon.apiEvolutions.map(evolution =>
+          {/* {currentPokemon.apiEvolutions.map(evolution =>
 
           (<div> <img key={evolution.name} src={evolution.image} alt={evolution.name} />
             <p>{evolution.pokedexId}</p>
             <p>{evolution.name}</p></div>
           )
+          ) */}
+
+
+          {evolution.map(evolution =>
+
+          (<div className="container-evolution" >
+            <p>{evolution.pokedexId}</p>
+            <h3>{evolution.name}</h3>
+            <img key={evolution.name} src={evolution.image} alt={evolution.name} />
+
+            </div>
           )
-// state pour les évo et faire fetch dans composant qui emt à jour useffect
+          )
+
+
+            // state pour les évolutions et faire fetch dans composant qui met à jour useffect
 
 
           }
