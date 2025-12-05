@@ -12,6 +12,8 @@ export function App({ pokemons }) {
   // setPokemon = setter
 
   const [currentPokemon, setPokemon] = useState(pokemons[0]);
+  // const [pokemonsList, setPokemons] = useState([]);
+
    useEffect(()=>{
     // on app load
     fetch("https://pokebuildapi.fr/api/v1/pokemon/limit/100")
@@ -21,11 +23,11 @@ export function App({ pokemons }) {
       }
       return res.json();
     })
-    .then(pokemons_arr=>{
-      // !
-      setPokemons(pokemons_arr); //c'est bizarre quand je l'enlève lus rien ne marche
-      setCurrentPokemon(pokemons_arr[0]);
-    })
+    // .then(pokemons=>{
+    //   // !
+    //   setPokemon(pokemons[0]); //c'est bizarre quand je l'enlève lus rien ne marche
+    //   setCurrentPokemon(pokemons);
+    // })
      },[])
     
     //evolution pokemon
