@@ -2,7 +2,7 @@ import Pokemon from "./Pokemon"
 import { useEffect, useState } from 'react'
 import './Pokemon-detail.css'
 
-export default function PokemonDetail({ currentPokemon, evolution }) {
+export default function PokemonDetail({ currentPokemon, evolution,setPokemon}) {
 
   return (
     <>
@@ -44,7 +44,11 @@ export default function PokemonDetail({ currentPokemon, evolution }) {
 
           {evolution.map(evolution =>
 
-          (<div className="container-evolution" >
+          (<div 
+            key={evolution.pokedexId}
+            className="container-evolution" 
+          onClick={() => setPokemon(evolution)}
+          >
             <p>{evolution.pokedexId}</p>
             <h3>{evolution.name}</h3>
             <img key={evolution.name} src={evolution.image} alt={evolution.name} />

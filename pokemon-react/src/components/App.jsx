@@ -66,7 +66,7 @@ useEffect(() => {
       <PokemonList pokemons={pokemons} setPokemon={setPokemon} />
       <div className="container">
           <SearchBar pokemons={pokemons} onPokemonFound={(pokemon)=>setPokemon(pokemon)} />
-        <PokemonDetail currentPokemon={currentPokemon} evolution={evolution}/>
+        <PokemonDetail currentPokemon={currentPokemon} evolution={evolution} setPokemon={setPokemon}/>
       </div>
     </div>
   )
