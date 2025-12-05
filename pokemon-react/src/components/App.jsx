@@ -4,6 +4,7 @@ import Pokemon from './Pokemon';
 import SearchBar from './SearchBar'
 import PokemonDetail from './PokemonDetail'
 import PokemonList from './PokemonList'
+// import Myfunction from './Myfunction';
 
 export function App({ pokemons }) {
 
@@ -63,6 +64,7 @@ useEffect(() => {
 
   return (
     < div className="app">
+     {/* <Myfunction/> */}
       <PokemonList pokemons={pokemons} setPokemon={setPokemon} />
       <div className="container">
           <SearchBar pokemons={pokemons} onPokemonFound={(pokemon)=>setPokemon(pokemon)} />

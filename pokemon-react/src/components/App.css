@@ -47,7 +47,25 @@ body {
 
 }
 
+.pokemon-card.pokemon-detail-plus {
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 200px;
+  gap:10px;
+  background: none;
+
+}
+
+ .pokemon-card.pokemon-detail-plus img.pokemon-image{
+
+width: 100%;
+height: 300px;
+ }
+
 .types-container {
+  margin-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,6 +114,8 @@ input{
 input::placeholder {
   color: #ccc;
 }
+
+
 /* responsivité */
 
 @media (width <=600px) {
@@ -116,6 +136,24 @@ input::placeholder {
   }
 
 
+ .pokemon-card.pokemon-detail-plus{
+
+  padding:146px;
+ }
+
+ .types-container {
+  margin-top: 10px;
+}
+
+/* 
+  .mobile-container {
+  max-width: 480px;
+  margin: auto;
+  background-color: #a300ee;
+  height: 500px;
+  color: rgb(255, 0, 0);
+  border-radius: 10px;
+}
 
 .topnav {
   overflow: hidden;
@@ -152,5 +190,7 @@ input::placeholder {
   background-color: #04AA6D;
   color: white;
 }
+ */
+
 
 }

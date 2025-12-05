@@ -12,7 +12,8 @@ export default function PokemonDetail({ currentPokemon, evolution,setPokemon}) {
 
 
 
-        <Pokemon pokemons={currentPokemon} />
+        <Pokemon className="pokemon-detail-plus" pokemons={currentPokemon} />
+        {/* comment chnager le css de Pokemon pokemon-detail-plus sans sans toucher les autres compenntns Pokemon*/}
 
         <div className="types-container">
           <h4 className="title-types">Types</h4>
